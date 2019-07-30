@@ -18,3 +18,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/jobs/{id}/{job}', 'JobController@show')->name('job.show');
+
+Route::get('/company/{id}/{company}', 'CompanyController@index')->name('company.index');
