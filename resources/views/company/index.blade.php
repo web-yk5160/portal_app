@@ -4,10 +4,22 @@
   <div class="container">
     <div class="col-md-12">
       <div class="company-profile">
+        @if(empty(Auth::user()->company->cover_photo))
         <img src="{{asset('cover/tumblr-image-sizes-banner.png')}}" style="width:100%;">
+        @else
+        <img src="{{asset('uploads/coverphoto')}}/{{Auth::user()->company->cover_photo}}" style="width:100%;">
+        @endif
+
+
         <div class="company-desc">
 
-        <img src="{{asset('avatar/man.png')}}" width="100">
+          @if(empty(Auth::user()->company->logo))
+            <img width="100" src="{{asset('avatar/man.png')}}" width="100" style="width:100%;">
+          @else
+          <img width="100" src="{{asset('uploads/logo')}}/{{Auth::user()->company->logo}}">
+          @endif
+
+
         <p>{{$company->description}}</p>
           <h1>{{$company->cname}}</h1>
           <p><strong>Slogan</strong>-{{$company->slogan}}&nbsp;
