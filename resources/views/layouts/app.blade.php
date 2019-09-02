@@ -93,6 +93,11 @@
                                      >
                                       {{ __('Profile') }}
                                   </a>
+
+                                  <a class="dropdown-item" href="/home"
+                                     >
+                                      {{ __('Saved jobs') }}
+                                  </a>
                                   @endif
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

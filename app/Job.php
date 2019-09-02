@@ -20,6 +20,14 @@ class Job extends Model
     }
 
     public function checkApplication() {
-      return \DB::table('job_user')->where('user_id', auth()->user()->id)->where('job_id', $this->id)->exists();
+        return \DB::table('job_user')->where('user_id', auth()->user()->id)->where('job_id', $this->id)->exists();
+    }
+
+    public function favorites(){
+        return $this->belongsToMany(Job::class, 'favorites', 'job_id', 'user_id')->withTimeStamps();
+    }
+
+    public function checkSaved() {
+        return \DB::table('favorites')->where('user_id', auth()->user()->id)->where('job_id', $this->id)->exists();
     }
 }

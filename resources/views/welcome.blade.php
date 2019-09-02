@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
+    <div class="col-md-12">
+       <search-component></search-component>
+    </div>
         <table class="table">
         <h1>Recent Jobs</h1>
             <thead>
